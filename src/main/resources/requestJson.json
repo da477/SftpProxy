@@ -1,0 +1,15 @@
+{
+  "server": "*.*.*.*",
+  "port": 22,
+  "user": "username",
+  "password": "Password",
+  "directory": "/NameDirectory",
+  "filesExtension": ".xml",
+  "fileNames": {
+    "FileName1": "Base64Value1",
+    "FileName2": "Base64Value2",
+    "FileName3": "Base64Value3"
+  }
+}
+
+
