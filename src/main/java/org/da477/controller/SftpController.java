@@ -5,18 +5,23 @@ import com.jcraft.jsch.SftpException;
 import org.da477.model.RequestJson;
 import org.da477.service.SftpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class SftpController {
 
+    @Value("{spring.application.name}")
+    private String appName;
+    private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private final SftpService service;
 
     @Autowired
@@ -50,7 +55,11 @@ public class SftpController {
 
     @GetMapping("/")
     public String index() {
-        return "Hello, I am 'SFtpProxy' and working..." + new Date();
+        return String.format(
+                "Hello, I am '%s' and working... %s",
+                appName,
+                LocalDateTime.now().format(formatter)
+        );
     }
 
 }

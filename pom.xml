@@ -11,7 +11,7 @@
 
     <groupId>org.da477</groupId>
     <artifactId>SftpProxy</artifactId>
-    <version>1.0.1</version>
+    <version>1.002.001</version>
     <packaging>war</packaging>
 
     <properties>
