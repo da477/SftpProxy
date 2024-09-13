@@ -19,7 +19,7 @@ import java.util.Map;
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class SftpController {
 
-    @Value("{spring.application.name}")
+    @Value("${spring.application.name}")
     private String appName;
     private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private final SftpService service;
