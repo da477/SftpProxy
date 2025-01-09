@@ -11,23 +11,20 @@
 
     <groupId>org.da477</groupId>
     <artifactId>SftpProxy</artifactId>
-    <version>1.002.001</version>
+    <name>sftp_proxy</name>
+    <version>1.003.001</version>
     <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <start-class>org.da477.SftpProxyApplication</start-class>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -38,11 +35,13 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -78,6 +77,12 @@
                     </excludes>
                     <mainClass>org.da477.SftpProxyApplication</mainClass>
                     <layout>WAR</layout>
+                    <image>
+                        <name>${project.name}:${project.version}</name>
+                        <env>
+                            <BP_JVM_VERSION>17.*</BP_JVM_VERSION>
+                        </env>
+                    </image>
                 </configuration>
                 <executions>
                     <execution>

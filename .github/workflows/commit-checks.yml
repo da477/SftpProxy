@@ -1,0 +1,31 @@
+name: Commit Checks # Name of the workflow
+
+on: # Trigger the workflow on push and pull-request to the master branch
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-test: # Describes the process of building and testing the project
+    name: Building, Testing, and Creating Image
+    runs-on: ubuntu-22.04
+
+    steps:
+      # Step 1:  copy the repository to the virtual machine
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Step 2: # Set up the working environment
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: maven
+
+      # Step 3: Build and test the application with Maven
+      - name: Build and Test
+        run: mvn clean verify
