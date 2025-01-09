@@ -4,22 +4,7 @@
     <!-- To enable JMX Management -->
     <jmxConfigurator/>
 
-    <property name="LOG_DIR" value="C:/Java/Logs"/>
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n"/>
-
-    <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_DIR}/sftpproxy.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- Daily rollover -->
-            <fileNamePattern>${LOG_DIR}/sftpproxy.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
-            <!-- Keep logs for 10 days -->
-            <maxHistory>10</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <charset>UTF-8</charset>
-            <pattern>${LOG_PATTERN}</pattern>
-        </encoder>
-    </appender>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -28,11 +13,8 @@
         </encoder>
     </appender>
 
-    <logger name="org.da477.sftpproxy" level="debug"/>
-
     <root level="info">
         <appender-ref ref="console"/>
-        <appender-ref ref="FileAppender"/>
     </root>
 
 </configuration>

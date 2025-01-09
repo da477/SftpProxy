@@ -1,10 +1,7 @@
 version: '3'
 services:
-  sftp-proxy:
-    container_name: sftp-proxy-container
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: sftp-proxy-image
+  sftp_proxy:
+    image: sftp_proxy
+    container_name: sftp_proxy
     ports:
       - "8080:8080"

@@ -12,7 +12,7 @@
     <groupId>org.da477</groupId>
     <artifactId>SftpProxy</artifactId>
     <name>sftp_proxy</name>
-    <version>1.003.001</version>
+    <version>1.004.001</version>
     <packaging>war</packaging>
 
     <properties>
@@ -78,7 +78,7 @@
                     <mainClass>org.da477.SftpProxyApplication</mainClass>
                     <layout>WAR</layout>
                     <image>
-                        <name>${project.name}:${project.version}</name>
+                        <name>${project.name}</name>
                         <env>
                             <BP_JVM_VERSION>17.*</BP_JVM_VERSION>
                         </env>
